@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XamTestInvestigate"
+             mc:Ignorable="d"
+             x:Name="this"
+             x:Class="XamTestInvestigate.MainPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <local:CustomListView x:Name="listView1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center">
+            <local:CustomListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="10" BackgroundColor="{Binding CardColor}" Margin="20,10">
+                            <StackLayout>
+                                <Label Text="{Binding Title}"
+                                       FontSize="Large"
+                                       HorizontalOptions="Fill"
+                                       VerticalOptions="Fill"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="TailTruncation"/>
+
+                                <Label Text="{Binding Message}"
+                                       FontSize="Small"
+                                       HorizontalOptions="Fill"
+                                       VerticalOptions="Fill"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="TailTruncation"/>
+
+                            </StackLayout>
+                        </Frame>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Replace" 
+                                      Command="{Binding Path=ReplaceCommand, Source={Reference this}}" 
+                                      CommandParameter="{Binding .}" 
+                                      IsDestructive="True"/>
+                            <MenuItem Text="Copy"  
+                                       Command="{Binding Path=CopyCommand, Source={Reference this}}" 
+                                       CommandParameter="{Binding .}" 
+                                       IsDestructive="True"/>
+                            <MenuItem  Text="Delete" 
+                                       Command="{Binding Path=DeleteCommand, Source={Reference this}}" 
+                                       CommandParameter="{Binding .}" 
+                                       IsDestructive="True"/>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </local:CustomListView.ItemTemplate>
+        </local:CustomListView>
+
+        <local:CustomListView x:Name="listView2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+            <local:CustomListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="10" BackgroundColor="{Binding CardColor}" Margin="20,10">
+                            <StackLayout>
+                                <Label Text="{Binding Title}"
+                                       FontSize="Large"
+                                       HorizontalOptions="Fill"
+                                       VerticalOptions="Fill"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="TailTruncation"/>
+
+                                <Label Text="{Binding Message}"
+                                       FontSize="Small"
+                                       HorizontalOptions="Fill"
+                                       VerticalOptions="Fill"
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="TailTruncation"/>
+
+                            </StackLayout>
+                        </Frame>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Replace" 
+                                      Command="{Binding Path=ReplaceCommand, Source={Reference this}}" 
+                                      CommandParameter="{Binding .}" 
+                                      IsDestructive="True"/>
+                            <MenuItem Text="Copy"  
+                                       Command="{Binding Path=CopyCommand, Source={Reference this}}" 
+                                       CommandParameter="{Binding .}" 
+                                       IsDestructive="True"/>
+                            <MenuItem  Text="Delete" 
+                                       Command="{Binding Path=DeleteCommand, Source={Reference this}}" 
+                                       CommandParameter="{Binding .}" 
+                                       IsDestructive="True"/>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </local:CustomListView.ItemTemplate>
+        </local:CustomListView>
+    </Grid>
+</ContentPage>

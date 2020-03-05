@@ -1,0 +1,1 @@
+C:\4\XamTestInvestigate\XamTestInvestigate\XamTestInvestigate.UWP\XamTestInvestigate.UWP.csproj;x86
